@@ -1,13 +1,13 @@
 {% set name = "Bootstrap-Flask" %}
-{% set version = "2.4.0" %}
+{% set version = "2.4.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3f7aa1b8be31e182fa2eaff2580e9b66aa9fad14f1a35e5c03d486169fb6c1a1
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_').lower() }}-{{ version }}.tar.gz
+  sha256: cc25c59495f150550ea41d0e8079689de4250fe45445e158abdc111f8fe883e2
 
 build:
   noarch: python
@@ -17,11 +17,11 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools >=61.0
   run:
     - flask
-    - python >=3.8
+    - python >={{ python_min }}
     - wtforms
 
 test:
@@ -29,6 +29,7 @@ test:
     - flask_bootstrap
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
 
