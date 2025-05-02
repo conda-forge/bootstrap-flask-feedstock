@@ -1,5 +1,5 @@
 {% set name = "Bootstrap-Flask" %}
-{% set version = "2.4.2" %}
+{% set version = "2.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_').lower() }}-{{ version }}.tar.gz
-  sha256: 8dcd6d6ed5458cfb76da4d57d2277f447da08d7977d551c82f51919f62c9586c
+  sha256: b6e5ea1ce40616fb289c9e85d4beedd43fea2048b4032f4abc83a582db494978
 
 build:
   noarch: python
