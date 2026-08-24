@@ -1,0 +1,46 @@
+context:
+  version: "2.6.0"
+
+package:
+  name: bootstrap-flask
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/b/bootstrap-flask/bootstrap-flask-${{ version }}.tar.gz
+  sha256: 2b0849f77a743e117716a75406b0312f0783658589519b0e922054bfb3102b9f
+
+build:
+  noarch: python
+  script: python -m pip install . -vv
+  number: 0
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools >=61.0
+  run:
+    - flask
+    - python >=${{ python_min }}
+    - wtforms
+
+tests:
+  - python:
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+      imports:
+        - flask_bootstrap
+      pip_check: true
+
+about:
+  homepage: https://bootstrap-flask.readthedocs.io
+  summary: 'Bootstrap 4 & 5 helper for your Flask projects.'
+  license: MIT
+  license_file: LICENSE
+  documentation: https://bootstrap-flask.readthedocs.io
+  repository: https://github.com/helloflask/bootstrap-flask
+
+extra:
+  recipe-maintainers:
+    - m-rossi
