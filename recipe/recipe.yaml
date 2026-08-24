@@ -6,7 +6,7 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/b/bootstrap-flask/bootstrap-flask-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/b/bootstrap_flask/bootstrap_flask-${{ version }}.tar.gz
   sha256: 2b0849f77a743e117716a75406b0312f0783658589519b0e922054bfb3102b9f
 
 build:
